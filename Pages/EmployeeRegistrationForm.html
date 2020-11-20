@@ -25,6 +25,11 @@
             <error-output class="number-error" for="tel"></error-output>
         </div>
         <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <error-output class="password-error" for="password"></error-output>
+        </div>
+        <div>
             <button>submit</button>
         </div>
         </form>
@@ -55,6 +60,15 @@
                   numberError.textContent="";
                  else
                   numberError.textContent="Phone Number is incorrect";
+             });
+             const password = document.querySelector('#password');
+             const passwordError = document.querySelector('.password-error');
+             password.addEventListener('input', function(){
+                 let passwordRegex= new RegExp(/^[@$#^!-+a-zA-Z0-9]{8,}$/);
+                 if(passwordRegex.test(password.value))
+                  passwordError.textContent="";
+                 else
+                  passwordError.textContent="Password is incorrect";
              });
         </script>
     </body>
