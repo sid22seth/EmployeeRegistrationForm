@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lan = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+        <title>Employee Registration Form</title>
+        <link rel="stylesheet" href="../css/employeeRegistration.css">
+    </head>
+    <body>
+        <form>
+        <header class="headerContainer"><h1>Employee Registration Form</h1></header>
+        <div>
+            <label for="text">Employee Name:</label>
+            <input type="text" id="text" name="text">
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <button>submit</button>
+        </div>
+        </form>
+        <script>
+             const text = document.querySelector('#text');
+             const textError = document.querySelector('.text-error');
+             text.addEventListener('input', function(){
+                 let namRegex= new RegExp(/^[A-Z][a-z]{2,}$/);
+                 if(namRegex.test(text.value))
+                  textError.textContent="";
+                 else
+                  textError.textContent="Name is incorrect";
+             })
+        </script>
+    </body>
+</html>
