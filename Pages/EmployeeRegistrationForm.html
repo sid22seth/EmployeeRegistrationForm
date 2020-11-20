@@ -20,6 +20,11 @@
             <error-output class="email-error" for="email"></error-output>
         </div>
         <div>
+            <label for="tel">Phone Number:</label>
+            <input type="tel" id="tel" name="tel">
+            <error-output class="number-error" for="tel"></error-output>
+        </div>
+        <div>
             <button>submit</button>
         </div>
         </form>
@@ -41,6 +46,15 @@
                   emailError.textContent="";
                  else
                   emailError.textContent="Email is incorrect";
+             });
+             const number = document.querySelector('#tel');
+             const numberError = document.querySelector('.number-error');
+             number.addEventListener('input', function(){
+                 let numberRegex= new RegExp(/^[1-9][0-9][ ][1-9][0-9]{9}$/);
+                 if(numberRegex.test(number.value))
+                  numberError.textContent="";
+                 else
+                  numberError.textContent="Phone Number is incorrect";
              });
         </script>
     </body>
