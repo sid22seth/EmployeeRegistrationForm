@@ -64,11 +64,11 @@
              const password = document.querySelector('#password');
              const passwordError = document.querySelector('.password-error');
              password.addEventListener('input', function(){
-                 let passwordRegex= new RegExp(/^[@$#^!-+a-zA-Z0-9]{8,}$/);
-                 if(passwordRegex.test(password.value))
-                  passwordError.textContent="";
-                 else
-                  passwordError.textContent="Password is incorrect";
+             let passwordRegex= new RegExp(/^((?=.*[A-Z])(?=.*[0-9])(?=^[a-zA-Z0-9]*[@$#%^!-+][a-zA-Z0-9]*$)).{8,}$/);
+             if(passwordRegex.test(password.value))
+                passwordError.textContent="";
+             else
+                passwordError.textContent="Password is incorrect";
              });
         </script>
     </body>
